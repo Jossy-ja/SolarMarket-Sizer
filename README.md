@@ -1,9 +1,9 @@
 # SolarMarket-Sizer: PV + Battery Sizing & Sensitivity Analysis for an Urban Market
 
-A techno-economic sizing tool that estimates the optimal rooftop PV +
-battery system for an off-grid or grid-unreliable urban market, using an
-hourly greedy dispatch simulation and a sensitivity sweep across candidate
-system sizes. The tool takes a synthetic end-use load profile and real
+A techno-economic sizing tool evaluates PV + battery configurations across
+a predefined sizing range for an off-grid or grid-unreliable urban market,
+using an hourly greedy dispatch simulation and a sensitivity sweep across 
+candidate system sizes. The tool takes a synthetic end-use load profile and real
 solar-resource data (PVGIS) as inputs, simulates hour-by-hour how a given
 PV + battery combination would serve that load over a full year, and sweeps
 across many combinations to surface the renewable-fraction / cost tradeoff
@@ -57,7 +57,19 @@ project addresses.
 
 ```mermaid
 flowchart TD
-    A[Market operating hours &<br/>end-use assumptions] --> B[Synthetic hourly load profile<br/>load_profile.py]
+   ┌──────────────────────────────┐
+│     URBAN MARKET DEMAND      │
+├──────────────────────────────┤
+│ 80 stalls                   │
+│ 0.35 kW/stall               │
+│ Lighting: 5 kW              │
+│ Refrigeration: 3 kW         │
+│ Water pump: 2 kW            │
+│ Security: 1 kW              │
+│ Other loads: 2 kW           │
+│ Operating: 06:00–19:00      │
+│ Market days: Mon–Sat        │
+└──────────────┬───────────────┘ A[Market operating hours &<br/>end-use assumptions] --> B[Synthetic hourly load profile<br/>load_profile.py]
     C[Site lat/lon] --> D[PVGIS hourly solar resource<br/>pvgis.py]
     B --> E[Greedy PV + battery dispatch<br/>battery_model.py]
     D --> E
