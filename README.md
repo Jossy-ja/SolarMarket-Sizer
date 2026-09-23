@@ -57,7 +57,8 @@ project addresses.
 
 ```mermaid
 flowchart TD
- A[Market operating hours &<br/>end-use assumptions] --> B[Synthetic hourly load profile<br/>load_profile.py]
+    A[Market operating hours &<br/>end-use assumptions] -->
+    B[Synthetic hourly load profile<br/>load_profile.py]
     C[Site lat/lon] --> D[PVGIS hourly solar resource<br/>pvgis.py]
     B --> E[Greedy PV + battery dispatch<br/>battery_model.py]
     D --> E
@@ -138,10 +139,7 @@ Reported figures below are illustrative of the sweep's *shape*, not a
 claim about any specific market — regenerate `sweep_df` from the notebook
 with your own site coordinates and load assumptions before citing numbers.
 
-| Pick                  | PV size | Battery size | Renewable fraction | Curtailment | Capex estimate |
-| ---------------------- | ------- | ------------ | ------------------- | ----------- | --------------- |
-| Cost-efficient          | *fill in from Section 7 output* | | | | |
-| Renewable-maximizing    | *fill in from Section 7 output* | | | | |
+
 
 ![Cost vs. renewable fraction](outputs/cost_vs_renewable_fraction.png)
 
@@ -195,7 +193,6 @@ produce a bankable feasibility study.
 │   └── pvgis_raw.csv             # (optional) manually downloaded PVGIS CSV for offline use
 ├── outputs/
 │   ├── sensitivity_sweep_results.csv
-│   ├── scenario_sensitivity_sweep_results.csv   # low/base/high demand sweep (Section 8)
 │   ├── renewable_fraction_heatmap.png
 │   └── cost_vs_renewable_fraction.png
 ├── requirements.txt
