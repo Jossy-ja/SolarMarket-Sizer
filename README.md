@@ -57,19 +57,7 @@ project addresses.
 
 ```mermaid
 flowchart TD
-   ┌──────────────────────────────┐
-│     URBAN MARKET DEMAND      │
-├──────────────────────────────┤
-│ 80 stalls                   │
-│ 0.35 kW/stall               │
-│ Lighting: 5 kW              │
-│ Refrigeration: 3 kW         │
-│ Water pump: 2 kW            │
-│ Security: 1 kW              │
-│ Other loads: 2 kW           │
-│ Operating: 06:00–19:00      │
-│ Market days: Mon–Sat        │
-└──────────────┬───────────────┘ A[Market operating hours &<br/>end-use assumptions] --> B[Synthetic hourly load profile<br/>load_profile.py]
+ A[Market operating hours &<br/>end-use assumptions] --> B[Synthetic hourly load profile<br/>load_profile.py]
     C[Site lat/lon] --> D[PVGIS hourly solar resource<br/>pvgis.py]
     B --> E[Greedy PV + battery dispatch<br/>battery_model.py]
     D --> E
